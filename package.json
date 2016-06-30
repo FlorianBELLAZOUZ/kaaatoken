@@ -1,6 +1,6 @@
 {
   "name": "kaaatoken",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A simple token generator",
   "main": "index.js",
   "scripts": {
