@@ -16,8 +16,8 @@ function encrypt(obj){
 
   var string = JSON.stringify(obj)
 
-  var encrypt = cipher.update(string, 'utf8', 'hex')
-  encrypt += cipher.final('hex')
+  var encrypt = cipher.update(string, 'utf8', 'base64')
+  encrypt += cipher.final('base64')
 
   return encrypt
 }
@@ -29,7 +29,7 @@ function encrypt(obj){
  * @return {object} {timestamp, [keys ...]}
  */
 function decrypt(token){
-  var decrypt = decipher.update(token, 'hex', 'utf8')
+  var decrypt = decipher.update(token, 'base64', 'utf8')
   decrypt += decipher.final('utf8')
 
   var obj = JSON.parse(decrypt)

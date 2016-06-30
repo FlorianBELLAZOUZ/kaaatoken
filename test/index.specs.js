@@ -10,6 +10,7 @@ describe('.encrypt(obj)', function () {
     token = Kaaatoken.encrypt(obj)
     token.should.be.a('string')
     token.should.not.be.empty
+    token.length.should.be.lt(200)
   })
 })
 
