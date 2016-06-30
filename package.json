@@ -1,0 +1,25 @@
+{
+  "name": "kaaatoken",
+  "version": "0.0.0",
+  "description": "A simple token generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/florianbellazouz/kaaatoken.git"
+  },
+  "keywords": [],
+  "author": "florianbellazouz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/florianbellazouz/kaaatoken/issues"
+  },
+  "homepage": "https://github.com/florianbellazouz/kaaatoken#readme",
+  "password": "test",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3"
+  }
+}
