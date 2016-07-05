@@ -1,7 +1,5 @@
 const crypto = require('crypto')
 const password = require('./package.json').password
-const cipher = crypto.createCipher('aes192', password)
-const decipher = crypto.createDecipher('aes192', password)
 
 /**
  * Cript the information in a token
@@ -10,6 +8,8 @@ const decipher = crypto.createDecipher('aes192', password)
  * @return {string}
  */
 function encrypt(obj){
+  const cipher = crypto.createCipher('aes192', password)
+
   var objToCript = obj
   objToCript.timestamp = Date.now()
   objToCript.rand = Math.floor(Math.random()*1000)
@@ -29,6 +29,8 @@ function encrypt(obj){
  * @return {object} {timestamp, [keys ...]}
  */
 function decrypt(token){
+  const decipher = crypto.createDecipher('aes192', password)
+
   var decrypt = decipher.update(token, 'base64', 'utf8')
   decrypt += decipher.final('utf8')
 
