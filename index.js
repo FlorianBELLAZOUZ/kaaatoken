@@ -10,6 +10,8 @@ const password = require('./package.json').password
 function encrypt(obj){
   const cipher = crypto.createCipher('aes192', password)
 
+  if(typeof obj !== 'object') return ''
+
   var objToCript = obj
   objToCript.timestamp = Date.now()
   objToCript.rand = Math.floor(Math.random()*1000)
@@ -31,8 +33,13 @@ function encrypt(obj){
 function decrypt(token){
   const decipher = crypto.createDecipher('aes192', password)
 
-  var decrypt = decipher.update(token, 'base64', 'utf8')
-  decrypt += decipher.final('utf8')
+  var decrypt
+  try{
+    decrypt = decipher.update(token, 'base64', 'utf8')
+    decrypt += decipher.final('utf8')
+  }catch(e){
+    decrypt = '{}'
+  }
 
   var obj = JSON.parse(decrypt)
 
